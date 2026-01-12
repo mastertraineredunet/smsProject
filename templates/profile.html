@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+{% block main-content %}
+    <div class="container-profile">
+        <h2>User Profile</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Update Profile</button>
+        </form>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+{% endblock main-content %}

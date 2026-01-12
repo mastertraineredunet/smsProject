@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #780404;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            margin: 10px 0;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            background-color: #780404;
+            padding: 10px;
+        }
+        footer {
+            padding: 10px;
+            background-color: #020202;
+            color: #ffffff;
+            position: fixed;
+            width: 98%;
+            bottom: 0;
+        }
+        .container-login {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        .container-login h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container-login form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container-login button {
+            padding: 10px;
+            background-color: #780404;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container-login button:hover {
+            background-color: #5c0303;
+        }
+        .container-signup {
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        .container-signup h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container-signup form {
+            display: flex;
+            flex-direction: column;
+        }
+        .container-signup button {
+            padding: 10px;
+            background-color: #780404;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container-signup div label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            display: block;
+        }
+        .container-signup input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .helptext {
+            display: none;
+            font-size: 0.875em;
+            color: #666666;
+            margin-top: 5px;
+        }
+        /* show helptext when input is hovered, focused, or when parent container hovered */
+        input:hover ~ .helptext,
+        input:focus ~ .helptext,
+        .container-signup div:hover .helptext,
+        .container-login div:hover .helptext {
+            display: block;
+        }
+        
+
+    
+    </style>
+</head>
+<body>
+    <h1>Students Management System</h1>
+    <div class="container">
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Add Profile</a></li>
+            <li><a href="/viewprofile">View Profile</a></li>
+            {% else %}
+            <li><a href="/home">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Register</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% block main-content %}
+    
+    {% endblock main-content %}
+    <footer>
+        <p style="text-align: center;">&copy; 2024 Students Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
